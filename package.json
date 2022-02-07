@@ -1,7 +1,7 @@
 {
-  "name": "marp-cli-example",
-  "version": "0.0.0",
-  "author": "Yuki Hattori <yukihattori1116@gmail.com>",
+  "name": "@thunkyard/_template",
+  "version": "0.1.0",
+  "author": "",
   "license": "WTFPL",
   "private": true,
   "scripts": {

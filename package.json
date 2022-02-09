@@ -1,15 +1,15 @@
 {
-  "name": "@thunkyard/decks",
+  "name": "@thunkyard/deck",
   "version": "0.1.0",
   "author": "follymath",
   "license": "WTFPL",
   "private": true,
   "scripts": {
-    "build": "rimraf dist && npm run -s build:og-image && npm run -s deck",
+    "build": "rimraf dist && npm run build:og-image && npm run deck",
     "build:og-image": "marp index.md -o dist/og-image.jpg",
-    "deck": "npm run -s deck:index && npm run -s deck:test",
+    "deck": "npm run deck:index && npm run deck:test && ncp assets dist/assets",
+    "deck:index": "marp --no-stdin index.md -o dist/index.html",
     "deck:test": "marp --no-stdin --html --bespoke.transition test.md -o dist/test.html",
-    "deck:index": "marp --no-stdin index.md -o dist/index.html && ncp assets dist/assets",
     "start": "marp -ps --html --bespoke.transition .",
     "watch": "marp -ws --html --bespoke.transition ."
   },

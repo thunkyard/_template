@@ -1,15 +1,17 @@
 {
-  "name": "@thunkyard/_template",
+  "name": "@thunkyard/decks",
   "version": "0.1.0",
-  "author": "",
+  "author": "follymath",
   "license": "WTFPL",
   "private": true,
   "scripts": {
-    "build": "rimraf dist && npm run -s og-image && npm run -s deck",
-    "deck": "marp --no-stdin PITCHME.md -o dist/index.html && ncp assets dist/assets",
-    "now-build": "npm run -s deck",
-    "og-image": "marp PITCHME.md -o dist/og-image.jpg",
-    "start": "marp -ps ."
+    "build": "rimraf dist && npm run -s build:og-image && npm run -s deck",
+    "build:og-image": "marp index.md -o dist/og-image.jpg",
+    "deck": "npm run -s deck:index && npm run -s deck:test",
+    "deck:test": "marp --no-stdin --html --bespoke.transition test.md -o dist/test.html",
+    "deck:index": "marp --no-stdin index.md -o dist/index.html && ncp assets dist/assets",
+    "start": "marp -ps --html --bespoke.transition .",
+    "watch": "marp -ws --html --bespoke.transition ."
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^1.5.2",

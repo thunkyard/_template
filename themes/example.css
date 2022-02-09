@@ -3,6 +3,7 @@
 @import 'uncover';
 
 section {
-  background: #cef;
+  /* background: #cef; */
+  background: red;
   color: #135;
 }
